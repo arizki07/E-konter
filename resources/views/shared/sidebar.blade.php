@@ -284,8 +284,8 @@
                                 <a class="dropdown-item" href="/transPulsa">
                                     Transaksi Pulsa
                                 </a>
-                                <a class="dropdown-item" href="/harga">
-                                    Transaksi DLL
+                                <a class="dropdown-item" href="/brilink">
+                                    Transaksi Brilink
                                 </a>
                             </div>
                         </div>

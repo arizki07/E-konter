@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BrilinkController;
 use App\Http\Controllers\Admin\KartuController;
 use App\Http\Controllers\Admin\PelangganController;
 use App\Http\Controllers\Admin\TransPulsaController;
@@ -55,5 +56,10 @@ Route::middleware('auth')->group(function () {
         Route::put('/update/trans/{id}', 'update')->name('update.trans');
         Route::delete('/destroy/trans/{id}', 'destroy');
         Route::get('/trans/print/{id}', 'print')->name('print.trans');
+    });
+
+    Route::controller(BrilinkController::class)->group(function () {
+        Route::get('/brilink', 'index');
+        Route::post('/brilink/store', 'store')->name('post.brilink');
     });
 });
