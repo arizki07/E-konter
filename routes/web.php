@@ -61,5 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::controller(BrilinkController::class)->group(function () {
         Route::get('/brilink', 'index');
         Route::post('/brilink/store', 'store')->name('post.brilink');
+        Route::get('/brilink/print/{id}', 'printBrilink')->name('print.brilink');
     });
 });

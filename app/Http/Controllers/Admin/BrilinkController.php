@@ -38,4 +38,10 @@ class BrilinkController extends Controller
             return redirect()->back()->with('error', 'Data transaksi brilink gagal, silahkan coba kembali');
         }
     }
+
+    public function printBrilink($id)
+    {
+        $brilink = BrilinkModel::findOrFail($id); // Misalnya menggunakan Eloquent untuk mengambil data
+        return view('nama_view', compact('brilink',));
+    }
 }
