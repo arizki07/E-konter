@@ -14,6 +14,8 @@
         </div>
     </div>
     <!-- Libs JS -->
+
+    @yield('script')
     @include('shared.script')
 </body>
 

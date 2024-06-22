@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\PelangganController;
 use App\Http\Controllers\Admin\TransPulsaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
 use App\Models\PelangganModel;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -62,5 +64,21 @@ Route::middleware('auth')->group(function () {
         Route::get('/brilink', 'index');
         Route::post('/brilink/store', 'store')->name('post.brilink');
         Route::get('/brilink/print/{id}', 'printBrilink')->name('print.brilink');
+    });
+
+    Route::controller(KategoriController::class)->group(function () {
+        Route::get('/kategori', 'index');
+        Route::post('/store/kategori', 'store')->name('store.kategori');
+        Route::put('/update/kategori/{id}', 'update')->name('update.kategori');
+        Route::delete('/destroy/kategori/{id}', 'destroy');
+        // Route::get('/brilink/print/{id}', 'printBrilink')->name('print.brilink');
+    });
+
+    Route::controller(BarangController::class)->group(function () {
+        Route::get('/barang', 'index');
+        Route::post('/store/barang', 'store')->name('store.barang');
+        Route::put('/update/barang/{id}', 'update')->name('update.barang');
+        Route::delete('/destroy/barang/{id}', 'destroy');
+        // Route::get('/brilink/print/{id}', 'printBrilink')->name('print.brilink');
     });
 });
