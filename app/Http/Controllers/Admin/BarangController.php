@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BarangModel;
 use App\Models\KategoriModel;
@@ -12,7 +13,7 @@ class BarangController extends Controller
     {
         $barang = BarangModel::all();
         $kategori = KategoriModel::all();
-        return view('barang.index', [
+        return view('product.02_barang.barang', [
             'judul' => 'Halaman Barang',
             'barang' => $barang,
             'kategori' => $kategori

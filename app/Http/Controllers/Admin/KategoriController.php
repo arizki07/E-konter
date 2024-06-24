@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\KategoriModel;
 
@@ -10,7 +11,7 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = KategoriModel::all();
-        return view('kategori.index', [
+        return view('product.02_barang.kategori', [
             'judul' => 'Halaman Kategori',
             'kategori' => $kategori
         ]);
