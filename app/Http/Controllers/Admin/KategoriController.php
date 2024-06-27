@@ -11,7 +11,7 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = KategoriModel::all();
-        return view('product.02_barang.kategori', [
+        return view('products.03_barang.kategori', [
             'judul' => 'Halaman Kategori',
             'kategori' => $kategori
         ]);

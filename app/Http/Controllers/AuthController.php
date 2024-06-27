@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Jika login berhasil, kirimkan URL dashboard
-            return redirect()->intended('dashboard');
+            return redirect()->route('loading');
         } else {
             // Jika login gagal, kirimkan pesan error
             return response()->json('Email atau password salah. Silakan coba lagi.', 422);

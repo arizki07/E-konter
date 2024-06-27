@@ -52,7 +52,7 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label class="form-label">Email address</label>
-                                        <input type="email" name="email" class="form-control"
+                                        <input type="text" name="email" class="form-control"
                                             placeholder="your@email.com" autocomplete="off">
                                         @error('email')
                                             <span class="text-danger">{{ $message }}</span>

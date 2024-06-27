@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\BarangController as AdminBarangController;
 use App\Http\Controllers\Admin\BrilinkController;
 use App\Http\Controllers\Admin\KartuController;
+use App\Http\Controllers\Admin\KategoriController as AdminKategoriController;
 use App\Http\Controllers\Admin\PelangganController;
 use App\Http\Controllers\Admin\TransPulsaController;
 use App\Http\Controllers\AuthController;
@@ -33,6 +35,10 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/loading', function () {
+        return view('pages.loading');
+    })->name('loading');
 
     Route::controller(DashboardController::class)->group(function () {
         Route::get('dashboard', 'index')->name('dashboard');
@@ -66,7 +72,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/brilink/print/{id}', 'printBrilink')->name('print.brilink');
     });
 
-    Route::controller(KategoriController::class)->group(function () {
+    Route::controller(AdminKategoriController::class)->group(function () {
         Route::get('/kategori', 'index');
         Route::post('/store/kategori', 'store')->name('store.kategori');
         Route::put('/update/kategori/{id}', 'update')->name('update.kategori');
@@ -74,7 +80,7 @@ Route::middleware('auth')->group(function () {
         // Route::get('/brilink/print/{id}', 'printBrilink')->name('print.brilink');
     });
 
-    Route::controller(BarangController::class)->group(function () {
+    Route::controller(AdminBarangController::class)->group(function () {
         Route::get('/barang', 'index');
         Route::post('/store/barang', 'store')->name('store.barang');
         Route::put('/update/barang/{id}', 'update')->name('update.barang');

@@ -13,7 +13,7 @@ class BarangController extends Controller
     {
         $barang = BarangModel::all();
         $kategori = KategoriModel::all();
-        return view('product.02_barang.barang', [
+        return view('productS.03_barang.barang', [
             'judul' => 'Halaman Barang',
             'barang' => $barang,
             'kategori' => $kategori
