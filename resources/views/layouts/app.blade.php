@@ -1,7 +1,9 @@
 @include('shared.head')
 
 <body>
+
     <script src="assets/dist/js/demo-theme.min.js?1692870487"></script>
+    @include('shared.script')
     <div class="page">
         <!-- Sidebar -->
         @include('shared.sidebar')
@@ -16,7 +18,6 @@
     <!-- Libs JS -->
 
     @yield('script')
-    @include('shared.script')
 </body>
 
 </html>

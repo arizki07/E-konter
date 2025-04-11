@@ -9,7 +9,9 @@ use App\Http\Controllers\Admin\TransPulsaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\Datatables\RekapList;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\RekapController;
 use App\Models\PelangganModel;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -33,6 +35,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'authenticate')->name('auth.post');
     Route::get('/logout', 'logout');
 });
+
+Route::resource('getRekap', RekapList::class);
 
 Route::middleware('auth')->group(function () {
 
@@ -86,5 +90,13 @@ Route::middleware('auth')->group(function () {
         Route::put('/update/barang/{id}', 'update')->name('update.barang');
         Route::delete('/destroy/barang/{id}', 'destroy');
         // Route::get('/brilink/print/{id}', 'printBrilink')->name('print.brilink');
+    });
+
+    Route::controller(RekapController::class)->group(function () {
+        Route::get('rekap', 'index');
+        Route::get('search', 'search')->name('rekap.search');
+        Route::post('store/rekap', 'store')->name('store.rekap');
+        Route::post('update/rekap/{id}', 'update')->name('update.rekap');
+        Route::delete('/rekap/delete/{id}', 'destroy')->name('rekap.destroy');
     });
 });
